@@ -1,5 +1,8 @@
 <?php
 
+require 'classes/Person.php';
+require 'classes/PersonSecured.php';
+
 $articleUn = [
     'titre' => 'Comment dresser son chien ?',
     'contenu' => 'Lorem ipsum',
@@ -56,8 +59,6 @@ include : https://www.php.net/manual/fr/function.include.php
 La différence entre les fonctions, c'est que si jamais le fichier n'a pas été correctement importé, require me déclenche une erreur et stop le script tandis qu'include déclenche un warning et continu.  
 */
 
-require 'classes/Person.php';
-
 // Maintenant que j'ai crée ma classe et que j'ai inclue mon fichier de classe dans mon script, je créé mon objet
 $personPaul = new Person('Paul', 'Verrier', 38, 'man', 180);
 
@@ -65,6 +66,38 @@ $personPaul = new Person('Paul', 'Verrier', 38, 'man', 180);
 
 $personMarie = new Person('Marie', 'Chevalier', 26, 'woman', 163);
 
+$personInconnue = new Person();
+
 //var_dump($personMarie);
 
-var_dump($personPaul, $personMarie);
+var_dump($personPaul, $personMarie, $personInconnue);
+
+echo $personMarie->firstname;
+
+var_dump($personPaul->size);
+
+$personMarie->firstname = 'Anne';
+
+var_dump($personMarie->firstname);
+
+$personPaul->presentPerson();
+echo '<br>';
+$personMarie->presentPerson();
+
+$personSecuredOne = new PersonSecured('Mathieu', 'Louton', 45, 'man', 145);
+
+var_dump($personSecuredOne);
+
+//echo $personSecuredOne->getFirstname();
+
+//$personSecuredOne->setFirstname('Eric');
+
+//var_dump($personSecuredOne);
+
+echo $personSecuredOne->__get('lastname');
+echo $personSecuredOne->__get('gender');
+
+$personSecuredOne->__set('size', 250);
+$personSecuredOne->__set('age', 96);
+
+var_dump($personSecuredOne);

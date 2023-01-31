@@ -3,16 +3,16 @@
 // Un nom de classe en PHP s'écrit toujours en commençant avec une majuscule (PascalCase) et le fichier de la class a le même nom que la classe. Une classe = un fichier
 
 class Person {
-    public $firstname = 'Jean' ; 
-    public $lastname = 'Dupont';
-    public $age  = 0;
-    public $gender = "man";
-    public $size = 165;
+    public $firstname ; 
+    public $lastname ;
+    public $age ;
+    public $gender ;
+    public $size;
 
     /* Un constructeur c'est une méthode qui va s'exécuter automatiquement à l'instanciation de mon objet */
 
-    /*
-    public function __construct(string $firstname, string $lastname, int $age, string $gender, int $size)
+    
+    public function __construct(string $firstname= 'Jean' , string $lastname= 'Dupont', int $age=0, string $gender= "man", int $size = 165)
     {
         $this->firstname = $firstname;
         $this->lastname = $lastname;
@@ -20,7 +20,7 @@ class Person {
         $this->gender = $gender;
         $this->size = $size;
     }
-    */
+    
 
     public function presentPerson()
     {
